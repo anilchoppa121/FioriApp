@@ -7,14 +7,17 @@
     "applicationVersion": {
       "version": "0.0.1"
     },
+    "dataSources": {
+      "Products":{
+          "uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
+          "type": "OData",
+          "settings": {
+              "odataVersion": "2.0"
+          }
+      }
+    },
     "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:basic",
-      "version": "1.17.3",
-      "toolsId": "5a3761fe-1ff4-4668-ab31-ca14ed34bca7"
-    }
+    "description": "{{appDescription}}"
   },
   "sap.ui": {
     "technology": "UI5",
@@ -33,7 +36,6 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": true,
     "dependencies": {
       "minUI5Version": "1.134.1",
       "libs": {
@@ -51,6 +53,9 @@
         "settings": {
           "bundleName": "testapp.freestyle.i18n.i18n"
         }
+      },
+      "ProductsModel":{
+        "dataSource": "Products"
       }
     },
     "resources": {
@@ -63,35 +68,32 @@
     "routing": {
       "config": {
         "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "transition": "slide",
         "type": "View",
         "viewType": "XML",
         "path": "testapp.freestyle.view",
-        "async": true,
-        "viewPath": "testapp.freestyle.view"
+        "controlAggregation": "pages",
+        "controlId": "app",
+        "transition":"slide",    
+        "async": true
       },
       "routes": [
         {
-          "name": "RouteApp",
-          "pattern": ":?query:",
-          "target": [
-            "TargetApp"
-          ]
+          "pattern": "",
+          "name": "product",
+          "target":"product"
         }
       ],
       "targets": {
-        "TargetApp": {
-          "id": "App",
-          "name": "App"
+        "product": {
+          "id": "Products",
+          "name": "Products",
+          "level": 1
         }
       }
     },
     "rootView": {
       "viewName": "testapp.freestyle.view.App",
       "type": "XML",
-      "id": "App",
       "async": true
     }
   }

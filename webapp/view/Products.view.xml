@@ -1,0 +1,50 @@
+<mvc:View
+    controllerName="testapp.freestyle.controller.Products"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m" core:require="{ formatter:'testapp/freestyle/model/formatter'}">
+    <Page
+        title="{i18n>productstitle}"
+        titleAlignment="Center"
+        class="sapUiResponsiveContent">
+        <Table
+            id="people"
+            items="{ProductsModel>/Products}"
+            growing="true"
+            growingThreshold='18'
+            growingScrollToLoad='true'>
+            <columns>
+                <Column>
+                    <Text text="{i18n>productName}" />
+                </Column>
+                <Column hAlign="Center">
+                    <Text text="{i18n>supplierID}"></Text>
+                </Column>
+                <Column hAlign="Center" >
+                    <Text text="{i18n>unitsInStock}" />
+                </Column>
+                <Column>
+                    <Text text="{i18n>unitsOnOrder}" />
+                </Column>
+                <Column>
+                    <Text text="{i18n>discontinued}" />
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem >
+                    <cells>
+                        <ObjectIdentifier text="{ProductsModel>ProductName}"></ObjectIdentifier>
+                        <ObjectNumber number="{ProductsModel>SupplierID}" emphasized="false" ></ObjectNumber>
+                        <ObjectNumber number="{ProductsModel>UnitsInStock}" unit="PC"  state="{ 
+                                                                                          path:'ProductsModel>UnitsInStock',
+                                                                                          formatter:'formatter.valueState'}"></ObjectNumber>
+                        <ObjectNumber number="{ProductsModel>UnitsOnOrder}" emphasized="false" unit="PC"></ObjectNumber>
+                        <Text class='customTextBold' text="{
+                                 path: 'ProductsModel>Discontinued',
+                                 formatter:'formatter.getIsDiscountinued'}"></Text>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+    </Page>
+</mvc:View>
