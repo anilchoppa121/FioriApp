@@ -12,21 +12,23 @@
             items="{ProductsModel>/Products}"
             growing="true"
             growingThreshold='18'
+            autoPopinMode='false'
             growingScrollToLoad='true'>
+            <!-- hiddenInPopin="Low" -->
             <columns>
                 <Column>
-                    <Text text="{i18n>productName}" />
+                    <Text text="{i18n>productName}"/>
                 </Column>
                 <Column hAlign="Center">
                     <Text text="{i18n>supplierID}"></Text>
                 </Column>
-                <Column hAlign="Center" >
+                <Column hAlign="Center" demandPopin="true" minScreenWidth="Desktop">
                     <Text text="{i18n>unitsInStock}" />
                 </Column>
-                <Column>
+                <Column importance="Low" demandPopin="false" minScreenWidth="Phone">
                     <Text text="{i18n>unitsOnOrder}" />
                 </Column>
-                <Column>
+                <Column importance="High">
                     <Text text="{i18n>discontinued}" />
                 </Column>
             </columns>
