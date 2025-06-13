@@ -1,0 +1,18 @@
+<core:FragmentDefinition
+    xmlns:p13n="sap.m.p13n"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <p13n:Popup
+        id='P13npopup'
+        title="{i18n>personalizationDialog}"
+        reset=".onReset"
+        close=".onClose">
+        <p13n:panels>
+             <p13n:SelectionPanel id="columnPanel" title="{i18n>columns}" showHeader="true" enableCount="true"></p13n:SelectionPanel>
+             <p13n:SortPanel title="{i18n>sort}" ></p13n:SortPanel>
+             <p13n:GroupPanel  id="grouppanel" title="{i18n>group}"></p13n:GroupPanel>
+
+        </p13n:panels>
+    </p13n:Popup>
+</core:FragmentDefinition>

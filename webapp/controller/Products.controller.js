@@ -1,8 +1,8 @@
-sap.ui.define(['sap/ui/core/mvc/Controller'], (controller) => {
+sap.ui.define(['testapp/freestyle/controller/Basecontroller'], (controller) => {
     "use strict"
     return controller.extend("testapp.freestyle.controller.Products", {
         onInit: function () {
-          
+            this._oVM = this.getView().byId('vm');
         },
         onBeforeRendering: function () {
             
@@ -16,6 +16,16 @@ sap.ui.define(['sap/ui/core/mvc/Controller'], (controller) => {
         //         clearInterval(interval);
         //     }
         // }, 1000)
-        }
+        },
+        onSettingsPress:function(oEvent){
+
+            var tableColumns = this.getTableColumns('product');
+            this.onPersonalizationDialog(oEvent,tableColumns);
+        },
+        onClose: function(oEvent){
+            if(oEvent.getParameters() && oEvent.getParameters().reason == 'Ok'){
+                this.handlePersonalizationOk(oEvent);
+            }  
+        }      
     });
 });

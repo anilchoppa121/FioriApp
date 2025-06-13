@@ -2,30 +2,82 @@
     controllerName="testapp.freestyle.controller.Products"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core"
-    xmlns="sap.m" core:require="{ formatter:'testapp/freestyle/model/formatter'}">
+    xmlns="sap.m"
+    core:require="{ formatter:'testapp/freestyle/model/formatter'}"
+>
     <Page
         title="{i18n>productstitle}"
         titleAlignment="Center"
-        class="sapUiResponsiveContent">
+        class="sapUiResponsiveContent"
+    >
         <Table
-            id="people"
+            id="product"
             items="{ProductsModel>/Products}"
             growing="true"
             growingThreshold='18'
             autoPopinMode='false'
-            growingScrollToLoad='true'>
+            growingScrollToLoad='true'
+        >
             <!-- hiddenInPopin="Low" -->
+            <headerToolbar>
+                <OverflowToolbar>
+                    <content>
+                        <VariantManagement
+                            id="vm"
+                            select="onselect"
+                            save="onSave"
+                            manage="onManage"
+                            popoverTitle="{i18n>myfavourites}"
+                            defaultKey="standard"
+                            selectedKey="standard"
+                        >
+                            <items>
+                                <VariantItem
+                                    author="SAP"
+                                    executeOnSelect='true'
+                                    title="Standard"
+                                    rename="false"
+                                    key="standard"
+                                />
+                                <VariantItem
+                                    author="Anil"
+                                    executeOnSelect='false'
+                                    title="Test1"
+                                    rename="true"
+                                    key="1"
+                                    remove="true"
+                                    sharing="Private"
+                                    favorite='false'
+                                />
+                            </items>
+                        </VariantManagement>
+                        <ToolbarSpacer />
+                        <Button
+                            icon="sap-icon://action-settings"
+                            press="onSettingsPress"
+                        />
+                    </content>
+                </OverflowToolbar>
+            </headerToolbar>
             <columns>
                 <Column>
-                    <Text text="{i18n>productName}"/>
+                    <Text text="{i18n>productName}" />
                 </Column>
                 <Column hAlign="Center">
-                    <Text text="{i18n>supplierID}"></Text>
+                    <Text text="{i18n>supplierID}" />
                 </Column>
-                <Column hAlign="Center" demandPopin="true" minScreenWidth="Desktop">
+                <Column
+                    hAlign="Center"
+                    demandPopin="true"
+                    minScreenWidth="Desktop"
+                >
                     <Text text="{i18n>unitsInStock}" />
                 </Column>
-                <Column importance="Low" demandPopin="false" minScreenWidth="Phone">
+                <Column
+                    importance="Low"
+                    demandPopin="false"
+                    minScreenWidth="Phone"
+                >
                     <Text text="{i18n>unitsOnOrder}" />
                 </Column>
                 <Column importance="High">
@@ -33,17 +85,31 @@
                 </Column>
             </columns>
             <items>
-                <ColumnListItem >
+                <ColumnListItem>
                     <cells>
-                        <ObjectIdentifier text="{ProductsModel>ProductName}"></ObjectIdentifier>
-                        <ObjectNumber number="{ProductsModel>SupplierID}" emphasized="false" ></ObjectNumber>
-                        <ObjectNumber number="{ProductsModel>UnitsInStock}" unit="PC"  state="{ 
+                        <ObjectIdentifier text="{ProductsModel>ProductName}" />
+                        <ObjectNumber
+                            number="{ProductsModel>SupplierID}"
+                            emphasized="false"
+                        />
+                        <ObjectNumber
+                            number="{ProductsModel>UnitsInStock}"
+                            unit="PC"
+                            state="{ 
                                                                                           path:'ProductsModel>UnitsInStock',
-                                                                                          formatter:'formatter.valueState'}"></ObjectNumber>
-                        <ObjectNumber number="{ProductsModel>UnitsOnOrder}" emphasized="false" unit="PC"></ObjectNumber>
-                        <Text class='customTextBold' text="{
+                                                                                          formatter:'formatter.valueState'}"
+                        />
+                        <ObjectNumber
+                            number="{ProductsModel>UnitsOnOrder}"
+                            emphasized="false"
+                            unit="PC"
+                        />
+                        <Text
+                            class='customTextBold'
+                            text="{
                                  path: 'ProductsModel>Discontinued',
-                                 formatter:'formatter.getIsDiscountinued'}"></Text>
+                                 formatter:'formatter.getIsDiscountinued'}"
+                        />
                     </cells>
                 </ColumnListItem>
             </items>
