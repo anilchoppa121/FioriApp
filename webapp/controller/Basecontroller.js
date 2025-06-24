@@ -121,7 +121,7 @@ sap.ui.define([
         handlePersonalizationOk: function (oEvent) {
             var tableColumns = this.getTableColumns('product');
             if (oEvent && oEvent.getSource()) {
-                var panels, columnItems;
+                var panels, columnItems,sortItems, groupItems;
                 panels = oEvent.getSource().getPanels();
                 if (panels.length > 0) {
                     panels.forEach(function (panel, index) {
