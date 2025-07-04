@@ -83,6 +83,11 @@
           "pattern": "",
           "name": "product",
           "target":"product"
+        },
+        {
+          "pattern": "detail/{id}",
+          "name": "detail",
+          "target":"detail"
         }
       ],
       "targets": {
@@ -90,6 +95,11 @@
           "id": "Products",
           "name": "Products",
           "level": 1
+        },
+        "detail":{
+          "id":"detail",
+          "name": "Detail",
+          "level":2
         }
       }
     },

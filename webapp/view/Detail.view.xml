@@ -1,0 +1,18 @@
+<mvc:View
+    controllerName="testapp/freestyle/controller/Detail"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:form="sap.ui.layout.form">
+    <Page
+        title="Detail Page"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+        <content>
+        <form:SimpleForm 
+        editable="false">
+               
+        </form:SimpleForm>
+        </content>
+
+    </Page>
+</mvc:View>

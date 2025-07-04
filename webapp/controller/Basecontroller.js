@@ -1,13 +1,14 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
+    "sap/ui/core/routing/History",
     "sap/m/VariantItem",
     "sap/m/SharingMode",
     "sap/m/MessageToast",
     "testapp/freestyle/libs/underscore-min"
-], (Controller, VariantItem, SharingMode, MessageToast) => {
+], (oController, History, VariantItem, SharingMode, MessageToast,) => {
     "use strict";
 
-    return Controller.extend("testapp.freestyle.controller.Basecontroller", {
+    return oController.extend("testapp.freestyle.controller.Basecontroller", {
         // onInit: function () {
 
         // },
@@ -102,7 +103,7 @@ sap.ui.define([
             this._setInitialdata(this.getTableColumns('product'));
         },
         onClose: function (oEvent) {
-          //Not implemented yet
+            //Not implemented yet
         },
         _setInitialdata: function (tableColumns) {
             if (tableColumns.length > 0) {
@@ -121,7 +122,7 @@ sap.ui.define([
         handlePersonalizationOk: function (oEvent) {
             var tableColumns = this.getTableColumns('product');
             if (oEvent && oEvent.getSource()) {
-                var panels, columnItems,sortItems, groupItems;
+                var panels, columnItems, sortItems, groupItems;
                 panels = oEvent.getSource().getPanels();
                 if (panels.length > 0) {
                     panels.forEach(function (panel, index) {
@@ -151,6 +152,18 @@ sap.ui.define([
         getTableColumns: function (sId) {
             var columns = this.getView().byId(sId) ? this.getView().byId(sId).getColumns() : [];
             return columns;
+        },
+        onNavBack: function (oEvent) {
+            var oHistoy, oRouter;
+            oRouter = this.getOwnerComponent().getRouter();
+            oHistoy = History.getInstance();
+            var sPrevhash = oHistoy.getPreviousHash();
+            if (sPrevhash != undefined) {
+                window.history.go(-1);
+            }
+            else{
+                oRouter.navTo('product',{},true);  // no history
+            }
         }
     });
 });

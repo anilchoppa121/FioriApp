@@ -85,7 +85,7 @@
                 </Column>
             </columns>
             <items>
-                <ColumnListItem>
+                <ColumnListItem type="Navigation" press=".onListItemPress">
                     <cells>
                         <ObjectIdentifier text="{ProductsModel>ProductName}" />
                         <ObjectNumber
