@@ -6,7 +6,8 @@ sap.ui.define([
     return Controller.extend("testapp.freestyle.controller.App", {
         onInit() {
             // Controller.prototype.onInit.call(this);
-             // init method of base controller is not called directly. it is called if the controller is attached to the view 
+             // init method of base controller is not called directly. it is called if the controller is attached to the view
+            //  sap.ui.getCore().applyTheme('sap_horizon'); 
         }
     });
 });

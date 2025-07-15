@@ -1,9 +1,13 @@
 <mvc:View
     controllerName="testapp/freestyle/controller/Detail"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns:f="sap.f"
+    xmlns:uxap="sap.uxap"
+    xmlns:layout="sap.ui.layout"
     xmlns:form="sap.ui.layout.form">
-    <Page
+    <!-- <Page
         title="Detail Page"
         showNavButton="true"
         navButtonPress=".onNavBack">
@@ -14,5 +18,102 @@
         </form:SimpleForm>
         </content>
 
-    </Page>
+    </Page> -->
+    <!-- <f:DynamicPage id="dynamicPage" headerExpanded="true" class="sapUiNoContentPadding">
+    <f:title>
+        <f:DynamicPageTitle>
+            <f:heading>
+                <Title text="{ProductsModel>ProductName}"></Title>
+            </f:heading>
+            <f:content>
+                <GenericTag  
+                    status="Success"
+                    design="StatusIconHidden"
+                    text="UnitsOnOrder">
+                    <value>
+                        <ObjectNumber number="{ProductsModel>UnitsOnOrder}" state='Success'></ObjectNumber>
+                    </value></GenericTag>         
+            </f:content>
+            <f:actions>
+                <Button text="Back" type="Back" press=".onNavBack"></Button>
+            </f:actions>
+        </f:DynamicPageTitle>
+    </f:title>
+    <f:header>
+        <f:DynamicPageHeader pinnable="true">
+            <f:content>
+                 <HBox alignItems="Center" alignContent="Center" gap="2rem">
+                   <VBox >
+                        <ObjectAttribute title="Category" text="{ProductsModel>Category/CategoryName}"></ObjectAttribute>
+                        <ObjectAttribute title="Descrption" text="{ProductsModel>Category/Description}"></ObjectAttribute>
+                    </VBox>
+                    <Image id='categoryImage' height="50px" width="50px" src=""></Image>
+                 </HBox>
+            </f:content>
+        </f:DynamicPageHeader>
+    </f:header>
+    <f:content>
+        <IconTabBar id="iconTabBar_detail" class="sapUiResponsiveContentPadding">
+        <items>
+            <IconTabFilter text="Supplier" key="supplier"></IconTabFilter>
+             <IconTabFilter text="Order_details" key="orderDetails"></IconTabFilter>
+        </items>
+        </IconTabBar>
+    </f:content>
+    </f:DynamicPage> -->
+    <uxap:ObjectPageLayout id="ObjectPage" 	useIconTabBar="true">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle>
+                <uxap:heading>
+                     <Title text="{ProductsModel>ProductName}"></Title>
+                </uxap:heading>
+                <uxap:content>
+                     <GenericTag  
+                        status="Success"
+                        design="StatusIconHidden"
+                        text="UnitsOnOrder">
+                        <value>
+                            <ObjectNumber number="{ProductsModel>UnitsOnOrder}" state='Success'></ObjectNumber>
+                        </value>
+                    </GenericTag>   
+                </uxap:content>
+                <uxap:navigationActions>
+                      <Button text="Back" type="Back" press=".onNavBack"></Button>
+                </uxap:navigationActions>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+              <FlexBox alignItems="Center" wrap="Wrap" fitContainer="false">
+                   <VBox  renderType="Bare" class="sapUiLargeMarginEnd">
+                        <ObjectAttribute title="Category" text="{ProductsModel>Category/CategoryName}"></ObjectAttribute>
+                        <ObjectAttribute title="Descrption" text="{ProductsModel>Category/Description}"></ObjectAttribute>
+                    </VBox>
+                    <VBox renderType="Bare">
+                        <Title text="Status"></Title>
+                        <ObjectStatus text="{= ${ProductsModel>Discontinued} ? 'Discontinued' : 'Active' }"  state="{= ${ProductsModel>Discontinued} ? 'Warning' : 'Success'}" class="sapMObjectStatusLarge"></ObjectStatus>
+                    </VBox>
+                 </FlexBox>
+        </uxap:headerContent>
+        <uxap:sections>
+            <uxap:ObjectPageSection title="Supplier" id="Supplier" titleUppercase="false">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="SupplierSection"  class="sapUxAPObjectPageSubSectionFitContainer">
+                        <uxap:blocks>
+                            <core:Fragment fragmentName="testapp/freestyle/fragment/Supplier"/>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            	<uxap:ObjectPageSection id="Order_details" titleUppercase="false" title="Order Details">
+                     <uxap:subSections>
+                        <uxap:ObjectPageSubSection id="Order_detailssection"  class="sapUxAPObjectPageSubSectionFitContainer">
+                            <uxap:blocks>
+                                <core:Fragment fragmentName="testapp/freestyle/fragment/OrderDetails"/>
+                            </uxap:blocks>
+                        </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+			</uxap:ObjectPageSection>
+            
+        </uxap:sections>
+    </uxap:ObjectPageLayout>
 </mvc:View>

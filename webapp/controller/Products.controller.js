@@ -36,7 +36,7 @@ sap.ui.define(['testapp/freestyle/controller/Basecontroller'], (oController) => 
             prodId = oContext ? oContext.getPath().substring('/Products'.length): "";
             if(prodId){
                 oRouter.navTo("detail",{
-                    id:0
+                    id: prodId
                 });
             }
 

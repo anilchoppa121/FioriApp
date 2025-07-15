@@ -1,0 +1,87 @@
+<core:FragmentDefinition
+    xmlns:table="sap.ui.table"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:rowmodes="sap.ui.table.rowmodes">
+    <table:Table
+        id="OrderDetails"
+        rows="{ProductsModel>Order_Details}"
+        class="sapUiContentPadding"
+        selectionMode="Single"
+        ariaLabelledBy="title">
+        <table:extension>
+            <OverflowToolbar>
+                <Title text="Details of Order" />
+            </OverflowToolbar>
+        </table:extension>
+        <table:rowMode>
+            <rowmodes:Fixed rowCount="10" />
+        </table:rowMode>
+        <table:columns>
+            <table:Column
+                autoResizable="true"
+                filterProperty="OrderID"
+                sortProperty="OrderID"
+                filterOperator="EQ">
+                <table:label>
+                    <Label text="OrderID" />
+                </table:label>
+                <table:template>
+                    <Text text="{ProductsModel>OrderID}" />
+                </table:template>
+            </table:Column>
+            <table:Column
+                autoResizable="true"
+                filterProperty="ProductID"
+                sortProperty="PrroductID"
+                filterOperator="EQ">
+                <table:label>
+                    <Label text="ProductID" />
+                </table:label>
+                <table:template>
+                    <Text text="{ProductsModel>ProductID}" />
+                </table:template>
+            </table:Column>
+            <table:Column
+                autoResizable="true"
+                hAlign="Center"
+                filterProperty="UnitPrice"
+                sortProperty="UnitPrice"
+                filterOperator="EQ">
+                <table:label>
+                    <Label text="UnitPrice" />
+                </table:label>
+                <table:template>
+                    <ObjectNumber
+                        number="{ProductsModel>UnitPrice}"
+                        unit="$"
+                        emphasized="false"
+                        textAlign="End"/>
+                </table:template>
+            </table:Column>
+            <table:Column
+                autoResizable="true"
+                filterProperty="Quantity"
+                filterOperator="EQ"
+                sortProperty="Quantity">
+                <table:label>
+                    <Label text="Quantity" />
+                </table:label>
+                <table:template>
+                    <Text text="{ProductsModel>Quantity}" />
+                </table:template>
+            </table:Column>
+            <table:Column
+                autoResizable="true"
+                filterProperty="Discount"
+                sortProperty="Discount">
+                <table:label>
+                    <Label text="Discount" />
+                </table:label>
+                <table:template>
+                    <Text text="{ProductsModel>Discount}" />
+                </table:template>
+            </table:Column>
+        </table:columns>
+    </table:Table>
+</core:FragmentDefinition>

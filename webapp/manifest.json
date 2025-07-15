@@ -85,7 +85,7 @@
           "target":"product"
         },
         {
-          "pattern": "detail/{id}",
+          "pattern": "Product/{id}",
           "name": "detail",
           "target":"detail"
         }
