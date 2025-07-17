@@ -1,6 +1,5 @@
-sap.ui.define(['testapp/freestyle/controller/Basecontroller', "sap/m/HBox", "sap/m/VBox", "sap/suite/ui/commons/MicroProcessFlow", "sap/suite/ui/commons/MicroProcessFlowItem",
-    "sap/ui/model/odata/v2/ODataModel"
-], function (oController, HBox, VBox, MicroProcessFlow, MicroProcessFlowItem, ODatav2Model) {
+sap.ui.define(['testapp/freestyle/controller/Basecontroller', "sap/m/HBox", "sap/m/VBox", "sap/suite/ui/commons/MicroProcessFlow", "sap/suite/ui/commons/MicroProcessFlowItem"
+], function (oController, HBox, VBox, MicroProcessFlow, MicroProcessFlowItem) {
     "use strict"
 
     return oController.extend("testapp/freestyle/controller/Detail", {
