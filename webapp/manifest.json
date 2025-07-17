@@ -58,6 +58,9 @@
       },
       "ProductsModel":{
         "dataSource": "Products"
+      },
+      "DetailsModel":{
+        "dataSource": "Products"
       }
     },
     "resources": {

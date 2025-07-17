@@ -15,8 +15,7 @@
             growing="true"
             growingThreshold='18'
             autoPopinMode='false'
-            growingScrollToLoad='true'
-        >
+            growingScrollToLoad='true'>
             <!-- hiddenInPopin="Low" -->
             <headerToolbar>
                 <OverflowToolbar>

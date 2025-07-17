@@ -7,8 +7,7 @@
         id="OrderDetails"
         rows="{ProductsModel>Order_Details}"
         class="sapUiContentPadding"
-        selectionMode="Single"
-        ariaLabelledBy="title">
+        selectionMode="Single">
         <table:extension>
             <OverflowToolbar>
                 <Title text="Details of Order" />
@@ -27,7 +26,7 @@
                     <Label text="OrderID" />
                 </table:label>
                 <table:template>
-                    <Text text="{ProductsModel>OrderID}" />
+                    <Link text="{ProductsModel>OrderID}" press=".onOrderIdPress" />
                 </table:template>
             </table:Column>
             <table:Column
