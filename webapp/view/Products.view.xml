@@ -8,16 +8,14 @@
     <Page
         title="{i18n>productstitle}"
         titleAlignment="Center"
-        class="sapUiResponsiveContent"
-    >
+        class="sapUiResponsiveContent">
         <Table
             id="product"
             items="{ProductsModel>/Products}"
             growing="true"
             growingThreshold='18'
             autoPopinMode='false'
-            growingScrollToLoad='true'
-        >
+            growingScrollToLoad='true'>
             <!-- hiddenInPopin="Low" -->
             <headerToolbar>
                 <OverflowToolbar>
@@ -29,16 +27,14 @@
                             manage="onManage"
                             popoverTitle="{i18n>myfavourites}"
                             defaultKey="standard"
-                            selectedKey="standard"
-                        >
+                            selectedKey="standard">
                             <items>
                                 <VariantItem
                                     author="SAP"
                                     executeOnSelect='true'
                                     title="Standard"
                                     rename="false"
-                                    key="standard"
-                                />
+                                    key="standard"/>
                                 <VariantItem
                                     author="Anil"
                                     executeOnSelect='false'
@@ -47,15 +43,13 @@
                                     key="1"
                                     remove="true"
                                     sharing="Private"
-                                    favorite='false'
-                                />
+                                    favorite='false'/>
                             </items>
                         </VariantManagement>
                         <ToolbarSpacer />
                         <Button
                             icon="sap-icon://action-settings"
-                            press="onSettingsPress"
-                        />
+                            press="onSettingsPress"/>
                     </content>
                 </OverflowToolbar>
             </headerToolbar>
@@ -69,15 +63,13 @@
                 <Column
                     hAlign="Center"
                     demandPopin="true"
-                    minScreenWidth="Desktop"
-                >
+                    minScreenWidth="Desktop">
                     <Text text="{i18n>unitsInStock}" />
                 </Column>
                 <Column
                     importance="Low"
                     demandPopin="false"
-                    minScreenWidth="Phone"
-                >
+                    minScreenWidth="Phone">
                     <Text text="{i18n>unitsOnOrder}" />
                 </Column>
                 <Column importance="High">
@@ -85,31 +77,27 @@
                 </Column>
             </columns>
             <items>
-                <ColumnListItem>
+                <ColumnListItem type="Navigation" press=".onListItemPress">
                     <cells>
                         <ObjectIdentifier text="{ProductsModel>ProductName}" />
                         <ObjectNumber
                             number="{ProductsModel>SupplierID}"
-                            emphasized="false"
-                        />
+                            emphasized="false"/>
                         <ObjectNumber
                             number="{ProductsModel>UnitsInStock}"
                             unit="PC"
                             state="{ 
-                                                                                          path:'ProductsModel>UnitsInStock',
-                                                                                          formatter:'formatter.valueState'}"
-                        />
+                              path:'ProductsModel>UnitsInStock',
+                              formatter:'formatter.valueState'}"/>
                         <ObjectNumber
                             number="{ProductsModel>UnitsOnOrder}"
                             emphasized="false"
-                            unit="PC"
-                        />
+                            unit="PC"/>
                         <Text
                             class='customTextBold'
                             text="{
                                  path: 'ProductsModel>Discontinued',
-                                 formatter:'formatter.getIsDiscountinued'}"
-                        />
+                                 formatter:'formatter.getIsDiscountinued'}"/>
                     </cells>
                 </ColumnListItem>
             </items>

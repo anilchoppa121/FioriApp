@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+      xmlns="sap.m"
+      xmlns:core="sap.ui.core">
+  <VBox class="sapUiSmallMargin">
+      <form:SimpleForm id="Form" layout="ResponsiveGridLayout"
+      columnsL="2">
+       <core:Title text="Details"></core:Title>
+            <Label text="CompanyName"></Label>
+            <Text text="{ProductsModel>Supplier/CompanyName}"></Text>
+            <Label text="ContactName"></Label>
+            <Text text="{ProductsModel>Supplier/ContactName}"></Text>
+            <Label text="ContactTitle"></Label>
+            <Text text="{ProductsModel>Supplier/ContactTitle}"></Text>
+       <core:Title text="Address"></core:Title>
+            <Label text="City"></Label>
+            <Text text="{ProductsModel>Supplier/City}"></Text>
+            <Label text="Country"></Label>
+            <Text text="{ProductsModel>Supplier/Country}"></Text>
+            <Label text="PostalCode"></Label>
+            <Text text="{ProductsModel>Supplier/PostalCode}"></Text>
+            <Label text="Building/H-No"></Label>
+            <Text text="{ProductsModel>Supplier/Address}"></Text>
+            <Label text="Contact Number"></Label>
+            <Text text="{ProductsModel>Supplier/Phone}"></Text>
+      </form:SimpleForm>
+</VBox>
+
+</core:FragmentDefinition>
