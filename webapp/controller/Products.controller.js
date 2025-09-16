@@ -5,7 +5,7 @@ sap.ui.define(['testapp/freestyle/controller/Basecontroller'], (oController) => 
             this._oVM = this.getView().byId('vm');
         },
         onBeforeRendering: function () {
-
+          // this is called every time after rerendering 
         },
         onAfterRendering: function (oEvent) {
             // var table = this.byId('people').getBinding('items');;
