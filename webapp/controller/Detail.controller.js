@@ -5,6 +5,12 @@ sap.ui.define(['testapp/freestyle/controller/Basecontroller', "sap/m/HBox", "sap
     return oController.extend("testapp/freestyle/controller/Detail", {
         onInit: function () {
             var oRouter;
+
+            this._loader = new sap.m.BusyDialog({
+                text: "Loading data...",
+                showCancelButton: false
+            })
+
             oRouter = this.getOwnerComponent().getRouter();
             oRouter.getRoute('detail').attachPatternMatched(this._attachMatched, this);
         },
@@ -12,6 +18,13 @@ sap.ui.define(['testapp/freestyle/controller/Basecontroller', "sap/m/HBox", "sap
             var ProductId, view;
             ProductId = oEvent.getParameter('arguments').id;
             view = this.getView();
+            // view.addEventDelegate({
+            //     onBeforeRendering: function(){
+            //         this.setBusy(true);
+            //     }
+            // });
+            // this._loader.open();
+
             view.bindElement({
                 path: "/Products" + ProductId,
                 model: "ProductsModel",
@@ -20,11 +33,13 @@ sap.ui.define(['testapp/freestyle/controller/Basecontroller', "sap/m/HBox", "sap
                 },
                 events: {
                     dataRequested: function () {
-                        view.setBusy(true);
-                    },
+                        // view.setBusy(true);
+                        this._loader.open();
+                    }.bind(this),
                     dataReceived: function (oEvent) {
-                        view.setBusy(false);
-                    }
+                        // view.setBusy(false);
+                        this._loader.close();
+                    }.bind(this)
                 }
             });
         },
@@ -122,6 +137,15 @@ sap.ui.define(['testapp/freestyle/controller/Basecontroller', "sap/m/HBox", "sap
                 popover.addContent(vBox);
                 popover.openBy(oControl);
             });
+        },
+        onBeforeRendering: function () {
+            debugger;
+        },
+        onAfterRendering: function () {
+            debugger;
+        },
+        onExit: function () {
+
         }
     });
 });

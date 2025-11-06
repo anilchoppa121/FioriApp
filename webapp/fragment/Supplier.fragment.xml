@@ -1,6 +1,7 @@
 <core:FragmentDefinition xmlns:form="sap.ui.layout.form"
       xmlns="sap.m"
-      xmlns:core="sap.ui.core">
+      xmlns:core="sap.ui.core"
+      xmlns:custom = "testapp.freestyle.control">
   <VBox class="sapUiSmallMargin">
       <form:SimpleForm id="Form" layout="ResponsiveGridLayout"
       columnsL="2">
@@ -11,6 +12,9 @@
             <Text text="{ProductsModel>Supplier/ContactName}"></Text>
             <Label text="ContactTitle"></Label>
             <Text text="{ProductsModel>Supplier/ContactTitle}"></Text>
+            <VBox alignItems="Center">
+            <custom:ProductRating id="Rating1" visualMode="Half" value="2.5" > </custom:ProductRating>
+            </VBox>
        <core:Title text="Address"></core:Title>
             <Label text="City"></Label>
             <Text text="{ProductsModel>Supplier/City}"></Text>

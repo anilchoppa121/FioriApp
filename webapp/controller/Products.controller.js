@@ -42,6 +42,10 @@ sap.ui.define(['testapp/freestyle/controller/Basecontroller'], (oController) => 
 
 
 
+        },
+        onHover:function(oEvent){
+            debugger;
+            console.log("Hovered over:");
         }
     });
 });

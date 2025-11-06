@@ -3,6 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
+    xmlns:custom="testapp.freestyle.control"
     core:require="{ formatter:'testapp/freestyle/model/formatter'}"
 >
     <Page
@@ -47,6 +48,7 @@
                             </items>
                         </VariantManagement>
                         <ToolbarSpacer />
+                        <custom:Button text="Rating" tooltip="create product" hover='onHover'></custom:Button>
                         <Button
                             icon="sap-icon://action-settings"
                             press="onSettingsPress"/>
